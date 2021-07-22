@@ -83,3 +83,20 @@
 - ItemWriteListener : item 쓰기에 대한 리스너 인터페이스
 - StepExecutionListener : Step 의 생명주기에 대한 리스너 인터페이스
 - JobExecutionListener : Job 의 생명주기에 대한 리스너 인터페이스
+
+### Parallel Processing
+
+- Multi-thread Step
+  - TaskExecutor 설정
+- Parallel Step
+  - step 으로 분리하여 병렬처리
+- Remote Chunking
+- Partioning
+  - Step 실행을 분할하고 원격으로 실행하기 위한 SPI 를 제공
+
+### Spring Batch Scheduling
+
+- Linux crontab, Windows Task Scheduler
+- Spring Scheduler, Quartz
+- Spring Cloud Data Flow
+- Jenkins, Airflow
