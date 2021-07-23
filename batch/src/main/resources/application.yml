@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    #rewriteBatchedStatements=true 옵션을 사용하면 DB 에서 벌크 insert 가 됨
+    url: jdbc:mysql://localhost:3307/fastcampus_spring?characterEncoding=utf8
+#    url: jdbc:mysql://localhost:3307/spring_batch_basic?characterEncoding=utf8
+    username: big
+    password: big
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  batch:
+    initializer-schema: always
+    job:
+      name: ${job.name:NONE}
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
