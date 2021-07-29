@@ -1,20 +1,20 @@
-package me.aop;
+package me.aop.v1;
 
+import me.aop.v1.Store;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class UserTest {
+class StoreTest {
 
     @Test
-    public void test() {
+    void test() {
         // Given
-        User user = new User();
+        Store store = new Store();
 
         // When & Then
-        assertThat(user.greeting()).isEqualTo("hello");
+        assertThat(store.getOperationTime()).isEqualTo("AM 08:00 ~ PM 08:00");
     }
 }
