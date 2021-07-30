@@ -29,8 +29,11 @@ class UserTest {
         User user = new User();
         user.setName("홍길동");
 
+        store.setVisitCountByUser(11);
+
         // When
         user.visitTo(store);
+
     }
 
     @Test
@@ -40,10 +43,9 @@ class UserTest {
         user.setName("AOP");
 
         library.setName("행복 도서관");
+        library.setVisitCountByUser(11);
 
         // When
         user.visitTo(library);
-
-        // Then
     }
 }
