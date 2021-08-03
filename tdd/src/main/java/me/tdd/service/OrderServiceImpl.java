@@ -19,6 +19,11 @@ public class OrderServiceImpl implements OrderService {
         if (order.getOrderId() == null) {
             return false;
         }
+
+        if (order.getState() == null) {
+            return false;
+        }
+
         return true;
     }
 }

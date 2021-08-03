@@ -1,6 +1,7 @@
 package me.tdd.service;
 
 import me.tdd.entity.Order;
+import me.tdd.entity.OrderStateEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,11 +23,11 @@ public class OrderServiceTest {
     public void orderInit() {
         orderSuccess = new Order();
         orderSuccess.setOrderId(1L);
-        orderSuccess.setState("Ordered");
+        orderSuccess.setState(OrderStateEnum.ORDERED);
 
         orderFail = new Order();
         orderFail.setOrderId(null);
-        orderFail.setState("");
+        orderFail.setState(null);
     }
 
     @Test
@@ -39,7 +40,7 @@ public class OrderServiceTest {
         }
 
         Assertions.assertEquals(1L, order.getOrderId());
-        Assertions.assertEquals("Ordered", order.getState());
+        Assertions.assertEquals(OrderStateEnum.ORDERED, order.getState());
     }
 
     // TODO : testOrderMake_success 와 비슷해서 하나로 합쳐도 상관없지만, 추가로 어떻게 사용될지 모르므로 우선 보류

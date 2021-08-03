@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class Order {
     private Long orderId;
-    private String state;
+    private OrderStateEnum state;
 }
