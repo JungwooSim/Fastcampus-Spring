@@ -7,6 +7,26 @@ import org.springframework.stereotype.Service;
 public class OrderDetailServiceImpl implements OrderDetailService {
     @Override
     public OrderDetail makeOrderDetail(OrderDetail orderDetail) throws Exception {
-        return orderDetail;
+        if(orderDetailValidation(orderDetail)){
+            return orderDetail;
+        } else {
+            throw new Exception("orderDetail validation fail");
+        }
+    }
+
+    private boolean orderDetailValidation(OrderDetail orderDetail){
+        if (orderDetail.getOrderId() == null) {
+            return false;
+        }
+
+        if (orderDetail.getSku() == null) {
+            return false;
+        }
+
+        if (orderDetail.getAmount() < 1) {
+            return false;
+        }
+
+        return true;
     }
 }
