@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface OrderService {
 
-    Order makeOrder(Order order);
+    Order makeOrder(Order order) throws Exception;
 }
