@@ -1,29 +1,43 @@
 package me.tdd.service;
 
 import me.tdd.entity.Order;
+import me.tdd.entity.OrderDetail;
 import me.tdd.entity.OrderStateEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
+@ExtendWith(MockitoExtension.class)
 @SpringBootTest
 public class OrderServiceTest {
+    @InjectMocks
+    OrderService orderService = new OrderServiceImpl();
 
-    @Autowired
-    OrderService orderService;
+    @Mock
+    OrderDetailService orderDetailService;
+
+//    @Autowired
+//    OrderService orderService;
 
     Order orderSuccess;
     Order orderFail;
 
     @BeforeEach
     public void orderInit() {
+        OrderDetail orderDetail = new OrderDetail();
         orderSuccess = new Order();
         orderSuccess.setOrderId(1L);
         orderSuccess.setState(OrderStateEnum.ORDERED);
+        orderSuccess.setOrderDetailList(Collections.singletonList(orderDetail));
 
         orderFail = new Order();
         orderFail.setOrderId(null);
