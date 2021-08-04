@@ -1,5 +1,5 @@
 package me.tdd.entity;
 
 public enum OrderStateEnum {
-    ORDERED, PENDING, PICKING, DONE
+    ORDERED, LISTMADED, ASSIGNED, PENDING, PICKING, DONE
 }
